@@ -55,6 +55,9 @@ class Calculator {
     }
 
     _getOneNumberSum(numbers) {
+        if (numbers < 0) {
+            throw 'negatives not allowed: ' + numbers;
+        }
         return parseInt(numbers);
     }
 

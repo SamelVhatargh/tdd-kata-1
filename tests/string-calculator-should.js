@@ -1,6 +1,7 @@
 "use strict";
 
 let assert = require('chai').assert;
+let expect = require('chai').expect;
 let Calculator = require('../src/calculator');
 
 suite('String calculator should', function () {
@@ -62,5 +63,13 @@ suite('String calculator should', function () {
         let result = calculator.add('//;\n1;2');
 
         assert.equal(result, 1 + 2);
+    });
+
+    test('throw negative number exception if input has negative numbers', function () {
+        let calculator = createCalculator();
+
+        let action = () => calculator.add('2,-2,3');
+
+        expect(action).to.throw('negatives not allowed: -2');
     });
 });
