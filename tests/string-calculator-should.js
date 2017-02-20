@@ -55,4 +55,12 @@ suite('String calculator should', function () {
 
         assert.equal(result, 1 + 2 + 3);
     });
+
+    test('return sum of numbers separated by custom delimiter', function () {
+        let calculator = createCalculator();
+
+        let result = calculator.add('//;\n1;2');
+
+        assert.equal(result, 1 + 2);
+    });
 });
