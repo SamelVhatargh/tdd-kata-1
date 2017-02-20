@@ -65,11 +65,19 @@ suite('String calculator should', function () {
         assert.equal(result, 1 + 2);
     });
 
-    test('throw negative number exception if input has negative numbers', function () {
+    test('throw negative number exception if input has negative number', function () {
         let calculator = createCalculator();
 
         let action = () => calculator.add('2,-2,3');
 
         expect(action).to.throw('negatives not allowed: -2');
+    });
+
+    test('throw exception with list of all negative numbers if input has negative numbers', function () {
+        let calculator = createCalculator();
+
+        let action = () => calculator.add('2,-2,-3');
+
+        expect(action).to.throw('negatives not allowed: -2,-3');
     });
 });

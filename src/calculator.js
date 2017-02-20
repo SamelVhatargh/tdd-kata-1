@@ -4,6 +4,7 @@ class Calculator {
     constructor() {
         this._defaultDelimiter = ',';
         this._customDelimiter = null;
+        this._negativeNumbers = [];
     }
 
     add(numbers) {
@@ -18,7 +19,11 @@ class Calculator {
             return this._getOneNumberSum(numbers);
         }
 
-        return this._getSeveralNumbersSum(numbers);
+        let sum = this._getSeveralNumbersSum(numbers);
+        if (this._negativeNumbers.length > 0) {
+            throw 'negatives not allowed: ' + this._negativeNumbers.join(',');
+        }
+        return sum;
     }
 
     _replaceCustomDelimitersWithDefaultDelimiter(numbers) {
@@ -56,7 +61,7 @@ class Calculator {
 
     _getOneNumberSum(numbers) {
         if (numbers < 0) {
-            throw 'negatives not allowed: ' + numbers;
+            this._negativeNumbers.push(numbers);
         }
         return parseInt(numbers);
     }
