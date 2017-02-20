@@ -47,4 +47,12 @@ suite('String calculator should', function () {
 
         assert.equal(result, 1 + 2);
     });
+
+    test('return sum of newline-separated and comma-separated numbers', function () {
+        let calculator = createCalculator();
+
+        let result = calculator.add('1\n2,3');
+
+        assert.equal(result, 1 + 2 + 3);
+    });
 });
