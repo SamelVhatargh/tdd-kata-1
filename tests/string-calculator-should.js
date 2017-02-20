@@ -13,7 +13,7 @@ suite('String calculator should', function () {
 
         let result = calculator.add('');
 
-        assert.equal(0, result);
+        assert.equal(result, 0);
     });
 
     test('return 1 if input is 1', function () {
@@ -21,7 +21,7 @@ suite('String calculator should', function () {
 
         let result = calculator.add('1');
 
-        assert.equal(1, result);
+        assert.equal(result, 1);
     });
 
     test('return one-digit number if input is that number', function () {
@@ -29,7 +29,7 @@ suite('String calculator should', function () {
 
         let result = calculator.add('3');
 
-        assert.equal(3, result);
+        assert.equal(result, 3);
     });
 
     test('return sum of two ond-digit numbers', function () {
@@ -37,6 +37,6 @@ suite('String calculator should', function () {
 
         let result = calculator.add('3,2');
 
-        assert.equal(3 + 2, result);
+        assert.equal(result, 3 + 2);
     });
 });
