@@ -47,4 +47,12 @@ suite('String calculator should', function () {
 
         assert.equal(result, 11 + 22);
     });
+
+    test('return sum of any number of numbers', function () {
+        let calculator = createCalculator();
+
+        let result = calculator.add('1,2,3,4,5,6');
+
+        assert.equal(result, 1 + 2 + 3 + 4 + 5 + 6);
+    });
 });

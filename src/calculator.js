@@ -6,7 +6,7 @@ class Calculator {
             return 0;
         }
 
-        if (this._isOneDigitNumber(numbers)) {
+        if (this._isSingleNumber(numbers)) {
             return this._getOneNumberSum(numbers);
         }
 
@@ -14,13 +14,12 @@ class Calculator {
     }
 
     _getSeveralNumbersSum(numbers) {
-        let splitNumbers = numbers.split(',');
-
-        return this._getOneNumberSum(splitNumbers[0])
-            + this._getOneNumberSum(splitNumbers[1]);
+        return numbers.split(',').reduce((a, b) => {
+            return this._getOneNumberSum(a) + this._getOneNumberSum(b);
+        });
     }
 
-    _isOneDigitNumber(numbers) {
+    _isSingleNumber(numbers) {
         return numbers.indexOf(',') === -1;
     }
 
