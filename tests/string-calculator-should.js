@@ -4,8 +4,12 @@ let assert = require('chai').assert;
 let Calculator = require('../src/calculator');
 
 suite('String calculator should', function () {
+    let createCalculator = function () {
+        return new Calculator();
+    };
+
     test('return 0 if input is empty string', function () {
-        let calculator = new Calculator();
+        let calculator = createCalculator();
 
         let result = calculator.add('');
 
@@ -13,10 +17,17 @@ suite('String calculator should', function () {
     });
 
     test('return 1 if input is 1', function () {
-        let calculator = new Calculator();
+        let calculator = createCalculator();
 
         let result = calculator.add('1');
 
         assert.equal(1, result);
+    });
+    test('return number if input is that number', function () {
+        let calculator = createCalculator();
+
+        let result = calculator.add('3');
+
+        assert.equal(3, result);
     });
 });
