@@ -14,13 +14,13 @@ class Calculator {
     }
 
     _getSeveralNumbersSum(numbers) {
-        return numbers.split(',').reduce((a, b) => {
+        return numbers.split(/[,\n]/).reduce((a, b) => {
             return this._getOneNumberSum(a) + this._getOneNumberSum(b);
         });
     }
 
     _isSingleNumber(numbers) {
-        return numbers.indexOf(',') === -1;
+        return numbers.indexOf(',') === -1 && numbers.indexOf('\n') === -1;
     }
 
     _getOneNumberSum(numbers) {
