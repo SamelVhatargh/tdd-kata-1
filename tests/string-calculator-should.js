@@ -23,11 +23,20 @@ suite('String calculator should', function () {
 
         assert.equal(1, result);
     });
-    test('return number if input is that number', function () {
+
+    test('return one-digit number if input is that number', function () {
         let calculator = createCalculator();
 
         let result = calculator.add('3');
 
         assert.equal(3, result);
+    });
+
+    test('return sum of two ond-digit numbers', function () {
+        let calculator = createCalculator();
+
+        let result = calculator.add('3,2');
+
+        assert.equal(3 + 2, result);
     });
 });
