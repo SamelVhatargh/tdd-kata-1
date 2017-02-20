@@ -39,4 +39,12 @@ suite('String calculator should', function () {
 
         assert.equal(result, 3 + 2);
     });
+
+    test('return sum of any two numbers', function () {
+        let calculator = createCalculator();
+
+        let result = calculator.add('11,22');
+
+        assert.equal(result, 11 + 22);
+    });
 });
